@@ -43,22 +43,33 @@ function Grid() {
                         // check all neighbors, only if within grid
                         // if neighbor is 1, add to neighbors value
                         let neighbors = countNeighbors(g, i, j);
+                        console.log("Neighbors", neighbors);
 
                         // put in Conway's rules here, for number of neighbors
+                        if (neighbors < 2 || neighbors > 3) {
+                            gridCopy[i][j] = 0;
+                        } else if (g[i][j] === 0 && neighbors === 3) {
+                            gridCopy[i][j] = 1;
+                        }
                     }
                 }
             })
         })
 
-        setTimeout(simulate, 1000);
+        setTimeout(simulate, 2000);
     }, [])
 
     return (
         <div>
 
             <button
+                className='button'
                 onClick={() => {
                     setRunning(!running);
+                    if (!running) {
+                        runningRef.current = true;
+                        simulate();
+                    }
                 }}>
                 {running ? "stop" : "start"}
             </button>
