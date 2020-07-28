@@ -43,7 +43,6 @@ function Grid() {
                         // check all neighbors, only if within grid
                         // if neighbor is 1, add to neighbors value
                         let neighbors = countNeighbors(g, i, j);
-                        console.log("Neighbors", neighbors);
 
                         // put in Conway's rules here, for number of neighbors
                         if (neighbors < 2 || neighbors > 3) {
@@ -56,7 +55,7 @@ function Grid() {
             })
         })
 
-        setTimeout(simulate, 2000);
+        setTimeout(simulate, 200);
     }, [])
 
     return (
