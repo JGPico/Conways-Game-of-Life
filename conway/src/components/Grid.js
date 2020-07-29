@@ -31,12 +31,8 @@ function Grid() {
         setGridArray(() => make2DArray(numCols, numRows));
     }
 
-    const simulate = useCallback(() => {
-        if (!runningRef.current) {
-            return;
-        }
+    const step = useCallback(() => {
 
-        console.log("simulation ran");
         setGeneration(prevGen => prevGen + 1);
 
         setGridArray(g => {
@@ -58,6 +54,13 @@ function Grid() {
             })
         })
 
+    }, [])
+
+    const simulate = useCallback(() => {
+        if (!runningRef.current) {
+            return;
+        }
+        step();
         setTimeout(simulate, 200);
     }, [])
 
@@ -79,6 +82,14 @@ function Grid() {
             <button
                 className='button'
                 onClick={() => {
+                    step();
+                }}>
+                Step
+            </button>
+
+            <button
+                className='button'
+                onClick={() => {
                     resetGrid();
                 }}>
                 Clear
@@ -92,11 +103,11 @@ function Grid() {
                 Randomize
             </button>
 
-            <div className='blockContainer'>
+            <div className='blockContainer25'>
                 {gridArray.map((cols, i) => {
                     return cols.map((row, j) =>
                         <div
-                            onDragEnter={() => handleClick(i, j)}
+                            // onDragEnter={() => handleClick(i, j)}
                             onMouseDown={() => handleClick(i, j)}
                             key={`${i}-${j}`}
                             style={{ backgroundColor: gridArray[i][j] ? 'blue' : undefined }}

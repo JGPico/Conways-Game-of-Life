@@ -8,8 +8,10 @@ function App() {
   return (
     <GridProvider>
       <div className='pageContainer'>
-        <Grid />
-        <Rules />
+        <div className='gridWrapper'>
+          <Grid />
+          <Rules />
+        </div>
       </div>
     </GridProvider>
   );
