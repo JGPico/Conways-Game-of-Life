@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
+import { GridContext, GridProvider } from './context/GridContext';
 import Grid from './components/Grid';
+import Rules from './components/Rules';
 
 function App() {
   return (
-    <div className='pageContainer'>
-      <Grid />
-    </div>
+    <GridProvider>
+      <div className='pageContainer'>
+        <Grid />
+        <Rules />
+      </div>
+    </GridProvider>
   );
 }
 

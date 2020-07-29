@@ -1,24 +1,14 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useContext } from 'react';
 import produce from 'immer';
 import '../App.css';
-import { make2DArray, countNeighbors } from '../functions/utils';
+import { make2DArray, countNeighbors, makeEmpty2DArray } from '../functions/utils';
+import { GridContext } from '../context/GridContext';
 import { numRows, numCols } from '../functions/GlobalVariables';
 
 function Grid() {
-    // const numRows = 10;
-    // const numCols = 10;
-
-    // let [gridArray, setGridArray] = useState(() => {
-    //     const rows = [];
-    //     for (let i = 0; i < numRows; i++) {
-    //         rows.push(Array.from(Array(numCols), () => {
-    //             return Math.floor(Math.random() * 2)
-    //         }))
-    //     }
-    //     return rows;
-    // });
 
     let [gridArray, setGridArray] = useState(() => make2DArray(numCols, numRows));
+    const [generation, setGeneration] = useContext(GridContext);
 
     const [running, setRunning] = useState(false);
     const runningRef = useRef(running);
@@ -28,13 +18,26 @@ function Grid() {
         const newGrid = produce(gridArray, gridCopy => {
             gridCopy[col][row] = gridArray[col][row] ? 0 : 1;
         })
-        setGridArray(newGrid)
+        setGridArray(newGrid);
+    }
+
+    function resetGrid() {
+        setGeneration(0);
+        setGridArray(() => makeEmpty2DArray(numCols, numRows));
+    }
+
+    function randomizeGrid() {
+        setGeneration(0);
+        setGridArray(() => make2DArray(numCols, numRows));
     }
 
     const simulate = useCallback(() => {
         if (!runningRef.current) {
             return;
         }
+
+        console.log("simulation ran");
+        setGeneration(prevGen => prevGen + 1);
 
         setGridArray(g => {
             return produce(g, gridCopy => {
@@ -70,7 +73,23 @@ function Grid() {
                         simulate();
                     }
                 }}>
-                {running ? "stop" : "start"}
+                {running ? "Stop" : "Start"}
+            </button>
+
+            <button
+                className='button'
+                onClick={() => {
+                    resetGrid();
+                }}>
+                Clear
+            </button>
+
+            <button
+                className='button'
+                onClick={() => {
+                    randomizeGrid();
+                }}>
+                Randomize
             </button>
 
             <div className='blockContainer'>
