@@ -1,17 +1,18 @@
 .pageContainer {
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: lightseagreen;
+    background-image: url("../../assets//cloud.jpg");
+    background-attachment: fixed;
   }
   
   .gridWrapper {
     margin: 0;
     border: 2px solid blue;
-    background: lavenderblush;
-    width: 80%;
+    background: var(--grid-bg);
+    width: 60%;
     height: 80%;
     display: flex;
     justify-content: center;
@@ -21,8 +22,8 @@
   .blockContainer25 {
     display: grid;
     grid-template-columns: repeat(25, 20px);
-    background: rgb(128, 206, 195);;
-    border-radius: 6px;
+    background: var(--grid-secondary);
+    border-radius: 4px;
     max-height: 100%;
   }
   
@@ -31,33 +32,33 @@
     padding: 0;
     width: 20px;
     height: 20px;
-    background: rgb(128, 206, 195);
-    border-radius: 6px;
+    background: var(--grid-secondary);
+    border-radius: 4px;
   }
   
   .block:hover {
-    background: blue;
+    background: var(--grid-primary);
   }
   
   .button {
     margin: 2px;
-    background: darkblue;
-    color: whitesmoke;
-    border-radius: 8px;
+    background: var(--button-primary);
+    color: var(--button-secondary);
+    border-radius: 6px;
     box-shadow: none;
     font-size: 20px;
     padding: 0 12px 0 12px;
   }
   
   .button:hover {
-    background: lightblue;
-    color: rgb(22, 22, 82);
+    background: var(--button-hover-primary);
+    color: var(--button-hover-secondary);
   }
   
   .speedButton {
     margin: 0;
-    background: darkblue;
-    color: whitesmoke;
+    background: var(--button-primary);
+    color: var(--button-secondary);
     border-radius: 8px;
     box-shadow: none;
     font-size: 1rem;
@@ -65,8 +66,8 @@
   }
   
   .speedButton:hover {
-    background: lightblue;
-    color: rgb(22, 22, 82);
+    background: var(--button-hover-primary);
+    color: var(--button-hover-secondary);
   }
   
   .speedContainer {
@@ -74,7 +75,7 @@
     height: 5rem;
     width: 15%;
     border-radius: 6px;
-    background: limegreen;
+    background: var(--grid-speed);
     transition: width 200ms ease;
   }
   
@@ -107,12 +108,12 @@
     margin-left: 4px;
     text-decoration: none;
     cursor: default;
-    color: black;
+    color: var(--grid-speed-text);
     font-size: 1rem;
   }
   
   .arrowWrapper i {
-    color: black;
+    color: var(--grid-speed-text);
   }
   
   .speedNav {
@@ -143,14 +144,35 @@
     margin-left: 0;
   }
   
-  /* Media query 800px ----- */
+  /* Media query 1600px ----- */
+  @media (max-width: 1600px) {
+      .gridWrapper {
+          width: 80%;
+      }
+  }
+  /* Media query 1600px ----- */
+
+  /* Media query 1200px ----- */
   
   @media (max-width: 1200px) {
     .gridWrapper {
       height: 100%;
       flex-direction: column;
     }
-  
+
+    .pageContainer {
+        height: 100%;
+    }
+  }
+
+  .speedContainer {
+    margin-bottom: 10px;
   }
   
-  /* Media query 800px ----- */
+  /* Media query 1200px ----- */
+
+  @media(max-height: 800px) {
+      .pageContainer {
+          height: 100%;
+      }
+  }

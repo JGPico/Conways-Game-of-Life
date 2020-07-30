@@ -6,9 +6,9 @@
     height: 450px;
     border: 2px solid green;
     border-radius: 6px;
-    background: darkslateblue;
+    background: var(--rules-bg);
   }
   
   .rulesContainer p, li{
-    color: whitesmoke;
+    color: var(--rules-text);
   }

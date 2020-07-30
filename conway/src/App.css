@@ -1,6 +1,22 @@
 :root {
   font-size: 16px;
   font-family: 'Open Sans';
+
+  --grid-bg: lavenderblush;
+  --grid-primary: #3E38F2;
+  --grid-secondary: #829FD9;
+
+  --grid-speed: #5C73F2;
+  --grid-speed-text: whitesmoke;
+
+  --rules-bg: #230A59;
+  --rules-text: whitesmoke;
+
+  --button-primary: darkblue;
+  --button-secondary: whitesmoke;
+
+  --button-hover-primary: whitesmoke;
+  --button-hover-secondary: darkblue;
 }
 
 .App {

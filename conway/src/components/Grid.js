@@ -121,7 +121,7 @@ function Grid() {
                             // onDragEnter={() => handleClick(i, j)}
                             onMouseDown={() => handleClick(i, j)}
                             key={`${i}-${j}`}
-                            style={{ backgroundColor: gridArray[i][j] ? 'blue' : undefined }}
+                            style={{ backgroundColor: gridArray[i][j] ? '#3E38F2' : undefined }}
                             className='block'></div>
                     )
                 })}

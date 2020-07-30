@@ -1,3 +1,22 @@
 .aboutWrapper {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
   }
+
+.aboutWrapper p {
+  width: 25%;
+}
+
+/* Media query 1200px ----- */
+  
+@media (max-width: 1200px) {
+  .aboutWrapper p{
+    width: 50%;
+  }
+}
+
+/* Media query 1200px ----- */
