@@ -1,49 +1,20 @@
+:root {
+  font-size: 16px;
+  font-family: 'Open Sans';
+}
+
 .App {
   text-align: center;
 }
 
-.pageContainer {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body::-webkit-scrollbar {
+  width: 0.5rem;
 }
 
-.gridWrapper {
-  border: 2px solid blue;
-  width: 80%;
-  height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
 }
 
-.blockContainer25 {
-  display: grid;
-  grid-template-columns: repeat(25, 20px);
-}
-
-.block {
-  margin: 0;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-  border: 2px solid black;
-}
-
-.button {
-  margin: 2px;
-  background: darkblue;
-  color: whitesmoke;
-  border-radius: 8px;
-  box-shadow: none;
-  font-size: 20px;
-  padding: 0 12px 0 12px;
-}
-
-.rulesContainer {
-  margin: 30px 0px 0px 20px;
-  padding: 6px;
-  max-width: 25%;
-  border: 2px solid green;
+body::-webkit-scrollbar-thumb {
+  background: #6649b8;
 }

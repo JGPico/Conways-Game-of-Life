@@ -1,0 +1,156 @@
+.pageContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: lightseagreen;
+  }
+  
+  .gridWrapper {
+    margin: 0;
+    border: 2px solid blue;
+    background: lavenderblush;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .blockContainer25 {
+    display: grid;
+    grid-template-columns: repeat(25, 20px);
+    background: rgb(128, 206, 195);;
+    border-radius: 6px;
+    max-height: 100%;
+  }
+  
+  .block {
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: rgb(128, 206, 195);
+    border-radius: 6px;
+  }
+  
+  .block:hover {
+    background: blue;
+  }
+  
+  .button {
+    margin: 2px;
+    background: darkblue;
+    color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: none;
+    font-size: 20px;
+    padding: 0 12px 0 12px;
+  }
+  
+  .button:hover {
+    background: lightblue;
+    color: rgb(22, 22, 82);
+  }
+  
+  .speedButton {
+    margin: 0;
+    background: darkblue;
+    color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: none;
+    font-size: 1rem;
+    padding: 0 12px 0 12px;
+  }
+  
+  .speedButton:hover {
+    background: lightblue;
+    color: rgb(22, 22, 82);
+  }
+  
+  .speedContainer {
+    margin-top: 2px;
+    height: 5rem;
+    width: 15%;
+    border-radius: 6px;
+    background: limegreen;
+    transition: width 200ms ease;
+  }
+  
+  .speedContainer:hover {
+    width: 100%;
+  }
+  
+  .speedContainer:hover .speedItem {
+    visibility: visible;
+    opacity: 1;
+    transition: 400ms;
+  }
+  
+  .speedWrapper {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    list-style: none;
+  }
+  
+  .arrowWrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .arrowWrapper span {
+    margin-left: 4px;
+    text-decoration: none;
+    cursor: default;
+    color: black;
+    font-size: 1rem;
+  }
+  
+  .arrowWrapper i {
+    color: black;
+  }
+  
+  .speedNav {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+  
+  .speedItem {
+    margin: 0;
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    height: 2.5rem;
+    text-decoration: none;
+    opacity: 0;
+  }
+  
+  .speedItem i {
+    min-width: 2rem;
+  }
+  
+  .speedText {
+    margin-left: 0;
+  }
+  
+  /* Media query 800px ----- */
+  
+  @media (max-width: 1200px) {
+    .gridWrapper {
+      height: 100%;
+      flex-direction: column;
+    }
+  
+  }
+  
+  /* Media query 800px ----- */
