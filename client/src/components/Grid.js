@@ -18,6 +18,10 @@ function Grid() {
     const runningRef = useRef(running);
     runningRef.current = running;
 
+    const [mouseIsDown, setMouseIsDown] = useState(false);
+    const mouseDownRef = useRef(mouseIsDown);
+    mouseDownRef.current = mouseIsDown;
+
     // Changes the value of a single block in the grid
     function handleClick(col, row) {
         const newGrid = produce(gridArray, gridCopy => {
@@ -34,6 +38,23 @@ function Grid() {
     function randomizeGrid() {
         setGeneration(0);
         setGridArray(() => make2DArray(numCols, numRows));
+    }
+
+    function handleMouseDown() {
+        setMouseIsDown(true);
+    }
+
+    function handleMouseUp() {
+        setMouseIsDown(false);
+    }
+
+    function handleDrag(col, row) {
+        if (mouseIsDown) {
+            const newGrid = produce(gridArray, gridCopy => {
+                gridCopy[col][row] = gridArray[col][row] ? 0 : 1;
+            })
+            setGridArray(newGrid);
+        }
     }
 
     function changeSpeed(setting) {
@@ -118,8 +139,12 @@ function Grid() {
                 {gridArray.map((cols, i) => {
                     return cols.map((row, j) =>
                         <div
-                            // onDragEnter={() => handleClick(i, j)}
-                            onMouseDown={() => handleClick(i, j)}
+                            onClick={() => handleClick(i, j)}
+                            onMouseDown={() => handleMouseDown()}
+                            onMouseUp={() => handleMouseUp()}
+
+                            onMouseOver={() => handleDrag(i, j)}
+
                             key={`${i}-${j}`}
                             style={{ backgroundColor: gridArray[i][j] ? '#3E38F2' : undefined }}
                             className='block'></div>
